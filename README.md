@@ -10,21 +10,19 @@ A music bot for Discord that streams music from Google Play Music in a voice cha
 * pip
 * Faker
 * gmusicapi
-* discord.py+voice
+* discord.py[voice]
 * ffmpeg
-* ???
-* Warriors blew a 3-1 lead.
 
 ---
 #### Steps to installing the bot:
 1. Install Python 3.5 on Windows or Linux.
 2. Install the required packages:
 ```
-pip install gmusicapi==1.10.1
-pip install discord.py+voice
+pip install gmusicapi
+pip install discord
+pip install discord[voice]
 pip install asyncio
 pip install aiohttp
-pip install discord
 pip install Faker
 ```
 
@@ -48,7 +46,7 @@ pip install Faker
 * [x] Create makefile for fast bootstrapping
 * [ ] Terraform for rapid AWS deployment
 * [x] Working permissions system with command integration
-* [ ] Make sure it cleans up after itself when streaming music
+* [x] Make sure it cleans up after itself when streaming music
 * [ ] Max queue size for songs
 * [x] Create music folder if it doesn't exist so it works when it doesn't
 * [ ] Pray that unittesting is in good shape (it's not) and fix what isn't

@@ -49,7 +49,6 @@ class Music:
 
 	def song_search(self, song, max_results=2):
 		results = self.api.search(song, max_results=max_results)
-		print("Results from api: " + json.dumps(results, indent=4))
 		found_songs = []
 		for index in range(0, max_results):
 			track = results.get('song_hits', [])[index].get('track', '')
