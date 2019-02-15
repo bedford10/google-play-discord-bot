@@ -41,7 +41,7 @@ data "aws_iam_policy_document" "discord_assume_document" {
         actions = ["sts:AssumeRole"]
         
         principals {
-           type = "Service"
+            type = "Service"
             identifiers = ["ec2.amazonaws.com"]
         }
     }
@@ -49,17 +49,30 @@ data "aws_iam_policy_document" "discord_assume_document" {
 
 data "aws_iam_policy_document" "discord_access_document" {
     statement {
-    sid = "kms-crypt-access"
+        sid = "kmsCryptAccess"
 
-    actions = [
-      "kms:Encrypt",
-      "kms:Decrypt",
-      "kms:ReEncrypt",
-      "kms:ListKeys"
-    ]
+        actions = [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncrypt",
+        "kms:ListKeys"
+        ]
 
-    resources = [
-      "arn:aws:kms:us-east-1:${data.aws_caller_identity.current.account_id}:*"
-    ]
-  }
+        resources = [
+            "arn:aws:kms:us-east-1:${data.aws_caller_identity.current.account_id}:*"
+        ]
+    }
+
+    statement {
+        sid = "ssmAccess"
+
+        actions = [
+            "ssm:DescribeParameters",
+            "ssm:Get*"
+        ]
+
+        resources = [
+            "arn:aws:ssm:us-east-1:${data.aws_caller_identity.current.account_id}:*"
+        ]
+    }
 }

@@ -5,3 +5,4 @@ music/
 output.txt
 terraform/.terraform/
 *.tfvars
+*.pem

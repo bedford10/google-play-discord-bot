@@ -8,3 +8,8 @@ resource "aws_iam_role_policy" "discord_role_policy" {
     role = "${aws_iam_role.discord_role.id}"
     policy = "${data.aws_iam_policy_document.discord_access_document.json}"
 }
+
+resource "aws_iam_instance_profile" "discord_instance_profile" {
+    name = "discord-instance-profile"
+    role = "${aws_iam_role.discord_role.name}"
+}
