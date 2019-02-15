@@ -70,7 +70,6 @@ class Music:
 		await self.bot.say("Downloading {}'s {}.mp3".format(artist, title))
 		track_raw = request.urlopen(track_url)
 		if "./music/{}_{}.mp3".format(artist, title) not in glob.glob("./music/*.mp3"):
-			await self.bot.say("Downloading {}'s {}.mp3".format(artist, title))
 			with open("./music/{}_{}.mp3".format(artist, title), "wb") as track_file:
 				track_file.write(track_raw.read())
 				track_file.close()

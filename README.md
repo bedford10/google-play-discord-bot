@@ -36,10 +36,9 @@ pip install Faker
 ### NOTES: 
 
 * When using this, please make sure everyone in the channel has a Google Play Music subscription. This is just to make sure no one gets in trouble.
-
 * To see the bot's commands do ```!help```
-
 * To get the best results from the ```!play``` command this is the best format: ```!play (Artist Name) - (Song Name)```
+* If you want to compress the project to an executable, `pip install pyinstaller && make dist`
 
 ### TODOS:
 
@@ -47,7 +46,7 @@ pip install Faker
 * [ ] Terraform for rapid AWS deployment
 * [x] Working permissions system with command integration
 * [x] Make sure it cleans up after itself when streaming music
-* [ ] Max queue size for songs
+* [x] Max queue size for songs
 * [x] Create music folder if it doesn't exist so it works when it doesn't
 * [ ] Pray that unittesting is in good shape (it's not) and fix what isn't
 * [ ] Make it not look like a comment bomb hit it

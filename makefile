@@ -23,3 +23,11 @@ purge-music:
 
 purge-permissions:
 	rm -rf ./permissions.json
+
+dist:
+	mkdir -p dist
+	pyinstaller --distpath ./dist/ --onefile --name gmusic-bot
+
+dist-dir:
+	mkdir -p dist/dir
+	pyinstaller --distpath ./dist/dir/ --onedir --name gmusic-bot
