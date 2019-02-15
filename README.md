@@ -51,4 +51,5 @@ pip install Faker
 * [ ] Pray that unittesting is in good shape (it's not) and fix what isn't
 * [ ] Make it not look like a comment bomb hit it
 * [ ] Fully updated README
-* [ ] Better searching?
+* [ ] Album support
+* [ ] Radio station support
