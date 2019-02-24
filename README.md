@@ -7,23 +7,14 @@ A music bot for Discord that streams music from Google Play Music in a voice cha
 
 **Requirements:**
 * Python 3.5
-* pip
-* Faker
-* gmusicapi
-* discord.py[voice]
+* A Google Play Music account
 * ffmpeg
-
 ---
 #### Steps to running the bot locally:
 1. Install Python 3.5 on Windows or Linux.
 2. Install the required packages:
 ```
-pip install gmusicapi
-pip install discord
-pip install discord[voice]
-pip install asyncio
-pip install aiohttp
-pip install Faker
+pip install gmusicapi discord.py[voice] pyinstaller
 ```
 
 3. Install ffmpeg on Linux or Windows. *Make sure to add ffmpeg to the path if you're installing on Windows.*
@@ -55,7 +46,7 @@ pip install Faker
 ### TODOS:
 
 * [x] Create makefile for fast bootstrapping
-* [ ] Terraform for rapid AWS deployment
+* [x] Terraform for rapid AWS deployment
 * [x] Working permissions system with command integration
 * [x] Make sure it cleans up after itself when streaming music
 * [x] Max queue size for songs
@@ -65,3 +56,4 @@ pip install Faker
 * [ ] Fully updated README
 * [ ] Album support
 * [ ] Radio station support
+* [ ] Raspi Bootstrap Script

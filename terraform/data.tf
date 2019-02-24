@@ -30,7 +30,9 @@ data "template_file" "user_data" {
     template = "${file("./userdata.sh")}"
 
     vars = {
-        dependencies = "${var.ubuntu-dependencies}"
+        ubuntu-dependencies = "${var.ubuntu_dependencies}"
+        python-dependencies = "${var.python_dependencies}"
+        username = "${var.instance_username}"
         environment = "${var.environment}"
         creds = "${var.creds}"
     }
