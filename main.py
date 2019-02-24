@@ -47,7 +47,9 @@ def load_environment(environment_path='environment.json'):
 
 
 if __name__ == "__main__":
-	logging.basicConfig(filename="gmusic.log", level=logging.INFO, format='%(asctime)s - %(name)s - %(message)s')
+	logging.basicConfig(filename="gmusic.log", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+	logging.getLogger('gmusicapi').setLevel(logging.WARNING)
+	logging.getLogger('discord').setLevel(logging.WARNING)
 	if not discord.opus.is_loaded():
 		discord.opus.load_opus('opus')
 	load_environment()
