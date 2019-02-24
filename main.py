@@ -1,4 +1,4 @@
-import discord, asyncio, aiohttp, os, json
+import discord, asyncio, aiohttp, os, json, logging
 from music import Music
 from discord.ext import commands
 from permissions import Permissions
@@ -10,6 +10,7 @@ server = None
 user_agent = get_user_agent()
 loop = asyncio.get_event_loop()  
 client = aiohttp.ClientSession(loop=loop)
+logger = logging.getLogger(__name__)
 
 async def my_background_task():
 	await bot.wait_until_ready()
@@ -27,17 +28,17 @@ async def motd(ctx, *, text):
 
 @bot.event
 async def on_ready():
-	print('Logged in as')
-	print(bot.user.name)
-	print(bot.user.id)
-	print('------')
+	logging.info('Logged in as')
+	logging.info(bot.user.name)
+	logging.info(bot.user.id)
+	logging.info('------')
 	server = bot.get_server(os.environ['DISCORD_SERVER_ID'])
 
 @bot.listen()
 async def on_message(message):
 	if message.author.bot:
 		return
-	print(message.author, "-", message.content)
+	logging.info(message.author, "-", message.content)
 
 def load_environment(environment_path='environment.json'):
 	with open(environment_path, 'r') as environment:
@@ -47,6 +48,7 @@ def load_environment(environment_path='environment.json'):
 
 
 if __name__ == "__main__":
+	logging.basicConfig(filename="gmusic.log", level=logging.INFO, format='%(asctime)s - %(name)s - %(message)s')
 	if not discord.opus.is_loaded():
 		discord.opus.load_opus('opus')
 	load_environment()
