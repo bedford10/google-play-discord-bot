@@ -22,6 +22,9 @@ class Permissions:
     def load_permissions(self):
         with open(self.permissions_file_location, 'r') as perms:
             self.permission_store = json.loads(perms.read())
+        except FileNotFoundError:
+            self.permission_store = { "admin": [os.environ['DEFAULT_ADMIN']]}
+            self.save_permissions()
 
     def check_permission(self, perm, user):
         return user in self.permissions.get(perm, [])
