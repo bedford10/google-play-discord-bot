@@ -2,12 +2,11 @@ import discord, asyncio, aiohttp, os, json, logging
 from music import Music
 from discord.ext import commands
 from permissions import Permissions
-from utils import *
 
 MOTD_TEXT = "2 + 2 is 4. Minus 1 that's 3, quick maffs."
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('!'))
 server = None
-user_agent = get_user_agent()
+user_agent = 'firefox'
 loop = asyncio.get_event_loop()  
 client = aiohttp.ClientSession(loop=loop)
 logger = logging.getLogger(__name__)
