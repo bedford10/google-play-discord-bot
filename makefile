@@ -1,3 +1,6 @@
+install:
+	sudo bootstrap.sh $whoami
+
 install-dev:
 	pyenv install 3.5.6
 	pyenv virtualenv 3.5.6 discord-bot
@@ -6,11 +9,6 @@ install-dev:
 
 install-dep:
 	pip install gmusicapi discord.py discord.py[voice] aiohttp Faker pyinstaller
-
-install:
-	echo "Creating artifact"
-	pyinstaller main.py
-	mv main /usr/local/bin/
 	
 run:
 	python main.py
